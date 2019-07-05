@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="form-group" style="margin-top:10px">
+      <!-- <label for="file">Choose Folder</label> &nbsp; -->
+      <!-- <input #folderInput type="file" text="upload folder" (change)="filesPicked(folderInput.files)" webkitDirectory> -->
+
+      <div class="custom-file">
+        <input #folderInput type="file" class="custom-file-input" (change)="filesPicked(folderInput.files)" webkitDirectory>
+        <label class="custom-file-label" for="customFileLangHTML" data-browse="Upload folder">Select folder</label>
+      </div>
+      <form class="example" style="margin-top:10px" >
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+      <table class="table table-bordered" style="margin-top:10px">
+        <thead class="thead-light">
+          <tr ngclass="btn-primary">
+            <th class="tbl2">File Name</th>
+            <th class="tbl2">Size (Byte) </th>
+            <th class="tbl2">Type</th>
+            <th class="tbl2">Path</th>
+            <th class="tbl2"> Download </th>
+          </tr>
+        </thead>
+        <tr *ngFor="let file of arr">
+          <td class="tbl2">{{file.fileName}}</td>
+          <td class="tbl2">{{file.size}}</td>
+          <td class="tbl2">{{file.type}}</td>
+          <td class="tbl2">{{file.path}}</td>
+          <td class="tbl2">
+            <!-- <button type="button" class="btn btn-info" matTooltip="Click to download" (click)="loadEmployeeToEdit(employee.EmpId)">Download</button> -->
+            <a [href]="file.fileUrl" download="file.fileName">DownloadFile</a>
+          </td>
+        </tr>
+
+      </table>
+
+    </div>
+  </div>
+</div>
